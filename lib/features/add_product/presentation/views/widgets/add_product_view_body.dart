@@ -15,7 +15,8 @@ class AddProductViewBody extends StatefulWidget {
 }
 
 class _AddProductViewBodyState extends State<AddProductViewBody> {
-  late String name, code, description, price;
+  late String name, code, description;
+  late num price;
   bool? isFeatured = false;
   File? fileImage;
   final formKey = GlobalKey<FormState>();
@@ -41,7 +42,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hitText: 'Product Price',
                 keyboardType: TextInputType.number,
                 onSaved: (p0) {
-                  price = p0!;
+                  price = num.parse(p0!);
                 },
               ),
               const SizedBox(height: 16),

@@ -2,7 +2,7 @@ import 'dart:io';
 
 class AddProductEntityInput {
   final String name;
-  final String price;
+  final num price;
   final String code;
   final String description;
   final File image;
