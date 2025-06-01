@@ -5,7 +5,8 @@ import '../../../../../core/utils/app_text_styles.dart';
 import 'custom_check_box.dart';
 
 class IsFeaturedCheckBox extends StatefulWidget {
-  const IsFeaturedCheckBox({super.key, required this.onChanged});
+  const IsFeaturedCheckBox({super.key, required this.onChanged, required this.text});
+  final String text;
 
   final ValueChanged<bool> onChanged;
   @override
@@ -22,7 +23,7 @@ class _IsFeaturedCheckBoxState extends State<IsFeaturedCheckBox> {
           TextSpan(
             children: [
               TextSpan(
-                text: 'is Featured Item?',
+                text: widget.text,
                 style: TextStyles.semiBold13.copyWith(
                   color: const Color(0xFF949D9E),
                 ),

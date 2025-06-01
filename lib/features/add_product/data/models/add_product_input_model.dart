@@ -10,6 +10,12 @@ class AddProductInputModel {
   final File image;
   String? imageUrl;
   final bool isFeatured;
+  final int expiresInMonths;
+  final bool isOrganic;
+  final int numberOfCalories;
+  final int unitAmount;
+  final num averageRating = 0.0;
+  final num ratingCount = 0;
   AddProductInputModel({
     required this.name,
     required this.price,
@@ -17,6 +23,10 @@ class AddProductInputModel {
     required this.description,
     required this.image,
     required this.isFeatured,
+    required this.expiresInMonths,
+    this.isOrganic = false,
+    required this.numberOfCalories,
+    required this.unitAmount,
     this.imageUrl,
   });
 
@@ -31,6 +41,10 @@ class AddProductInputModel {
       image: addProductEntityInput.image,
       isFeatured: addProductEntityInput.isFeatured,
       imageUrl: addProductEntityInput.imageUrl,
+      expiresInMonths: addProductEntityInput.expiresInMonths,
+      isOrganic: addProductEntityInput.isOrganic,
+      numberOfCalories: addProductEntityInput.numberOfCalories,
+      unitAmount: addProductEntityInput.unitAmount,
     );
   }
   Map<String, dynamic> toJson() {
@@ -41,6 +55,10 @@ class AddProductInputModel {
       'description': description,
       'imageUrl': imageUrl,
       'isFeatured': isFeatured,
+      'expiresInMonths': expiresInMonths,
+      'isOrganic': isOrganic,
+      'numberOfCalories': numberOfCalories,
+      'unitAmount': unitAmount,
     };
   }
 }

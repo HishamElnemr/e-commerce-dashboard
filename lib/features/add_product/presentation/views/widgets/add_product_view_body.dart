@@ -19,7 +19,9 @@ class AddProductViewBody extends StatefulWidget {
 class _AddProductViewBodyState extends State<AddProductViewBody> {
   late String name, code, description;
   late num price;
+  late int expiresInMonths, numberOfCalories, unitAmount;
   bool? isFeatured = false;
+  bool? isOrganic = false;
   File? fileImage;
   final formKey = GlobalKey<FormState>();
   @override
@@ -65,11 +67,44 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 },
               ),
               const SizedBox(height: 16),
+              CustomTextFormField(
+                hitText: 'Expires In Months',
+                keyboardType: TextInputType.number,
+                onSaved: (p0) {
+                  expiresInMonths = int.parse(p0!);
+                },
+              ),
+              const SizedBox(height: 16),
+              CustomTextFormField(
+                hitText: 'Number Of Calories',
+                keyboardType: TextInputType.number,
+                onSaved: (p0) {
+                  numberOfCalories = int.parse(p0!);
+                },
+              ),
+              const SizedBox(height: 16),
+              CustomTextFormField(
+                hitText: 'Unit Amount',
+                keyboardType: TextInputType.number,
+                onSaved: (p0) {
+                  unitAmount = int.parse(p0!);
+                },
+              ),
+              const SizedBox(height: 16),
               IsFeaturedCheckBox(
                 onChanged: (value) {
                   isFeatured = value;
                 },
+                text: 'is Featured Item?',
               ),
+              const SizedBox(height: 16),
+              IsFeaturedCheckBox(
+                onChanged: (value) {
+                  isOrganic = value;
+                },
+                text: 'is Organic Item?',
+              ),
+
               const SizedBox(height: 16),
               ImageField(
                 onFileChanged: (image) {
@@ -89,6 +124,10 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                         isFeatured: isFeatured!,
                         image: fileImage!,
                         name: name,
+                        expiresInMonths: expiresInMonths,
+                        isOrganic: isOrganic!,
+                        numberOfCalories: numberOfCalories,
+                        unitAmount: unitAmount,
                       );
                       context.read<AddProductCubit>().addProduct(input);
                     }

@@ -12,6 +12,8 @@ class AddProductEntityInput {
   final bool isOrganic;
   final int numberOfCalories;
   final int unitAmount;
+  final num averageRating = 0.0;
+  final num ratingCount = 0;
   AddProductEntityInput({
     required this.name,
     required this.price,
@@ -20,7 +22,7 @@ class AddProductEntityInput {
     required this.image,
     required this.isFeatured,
     required this.expiresInMonths,
-    required this.isOrganic,
+    this.isOrganic = false,
     required this.numberOfCalories,
     required this.unitAmount,
     this.imageUrl,
