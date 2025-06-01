@@ -13,17 +13,15 @@ class ImagesRepoImpl implements ImagesRepo {
   @override
   Future<Either<Failure, String>> uploadImage(File imagePath) async {
     try {
-  String url = (await storageServices.uploadFile(
-    imagePath,
-    BackendEndpoints.images,
-  ));
-  return Right(url);
-}  catch (e) {
-  return Left(ServerFailure(
-      message: 'Failed to upload image: ${e.toString()}',
-    ));
-}
-    
-    throw UnimplementedError();
+      String url = (await storageServices.uploadFile(
+        imagePath,
+        BackendEndpoints.images,
+      ));
+      return Right(url);
+    } catch (e) {
+      return Left(
+        ServerFailure(message: 'Failed to upload image: ${e.toString()}'),
+      );
+    }
   }
 }

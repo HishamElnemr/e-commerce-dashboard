@@ -6,15 +6,15 @@ class AddProductEntityInput {
   final String code;
   final String description;
   final File image;
-  final String? imageUrl;
+  String? imageUrl;
   final bool isFeatured;
-  const AddProductEntityInput({
+  AddProductEntityInput({
     required this.name,
     required this.price,
     required this.code,
     required this.description,
     required this.image,
     required this.isFeatured,
-    this.imageUrl
+    this.imageUrl,
   });
 }
