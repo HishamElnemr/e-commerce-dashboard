@@ -140,6 +140,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 },
                 text: 'Add Product',
               ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
